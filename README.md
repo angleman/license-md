@@ -18,7 +18,9 @@ npm install license-markdown
 ## License: MIT
 
 Dependency licenses:
+
 [![npm-license](http://badgr.co/bsd/npm-license.png?bg=%234ed50e)](http://github.com/AceMetrix/license-checker)
 [![grunt](http://badgr.co/mit/grunt.png?bg=%234ed50e)](https://github.com/gruntjs/grunt) [![license-markdown](http://badgr.co/mit/license-markdown.png?bg=%234ed50e)](https://github.com/angleman/license-markdown)
 [![should](http://badgr.co/mit*/should.png?bg=%234ed50e)](https://github.com/visionmedia/should.js)
+
 [![grunt-bump](http://badgr.co/unknown/grunt-bump.png?bg=%23FFCE63)](https://github.com/vojtajina/grunt-bump) [![mocha](http://badgr.co/unknown/mocha.png?bg=%23FFCE63)](https://github.com/visionmedia/mocha)
