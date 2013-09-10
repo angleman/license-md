@@ -23,7 +23,7 @@ Dependency licenses:
 - MIT*: [should](https://github.com/visionmedia/should.js)
 - UNKNOWN: [grunt-bump](https://github.com/vojtajina/grunt-bump), [mocha](https://github.com/visionmedia/mocha)
 
-[![grunt-bump](http://badgr.co/-/grunt-bump.png)](https://github.com/vojtajina/grunt-bump), [![mocha](http://badgr.co/-/mocha.png)](https://github.com/visionmedia/mocha)
-[![grunt](http://badgr.co/-/grunt.png)](https://github.com/gruntjs/grunt), [![license-markdown](http://badgr.co/-/license-markdown.png)](https://github.com/angleman/license-markdown)
-[![npm-license](http://badgr.co/-/npm-license.png)](http://github.com/AceMetrix/license-checker)
-[![should](http://badgr.co/-/should.png)](https://github.com/visionmedia/should.js)
+[![grunt-bump](http://badgr.co/UNKNOWN/grunt-bump.png?bg=%fff47f)](https://github.com/vojtajina/grunt-bump), [![mocha](http://badgr.co/UNKNOWN/mocha.png?bg=%fff47f)](https://github.com/visionmedia/mocha)
+, [![grunt](http://badgr.co/MIT/grunt.png?bg=%234ed50e)](https://github.com/gruntjs/grunt), [![license-markdown](http://badgr.co/MIT/license-markdown.png?bg=%234ed50e)](https://github.com/angleman/license-markdown)
+, [![npm-license](http://badgr.co/BSD/npm-license.png?bg=%234ed50e)](http://github.com/AceMetrix/license-checker)
+, [![should](http://badgr.co/MIT*/should.png?bg=%234ed50e)](https://github.com/visionmedia/should.js)
