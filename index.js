@@ -52,14 +52,16 @@ checker.init({
 		Object.keys(mods).forEach(function(key) {
 			var item = mods[key];
 			if (!thispack || !thispack.name || thispack.name != key) {
-				if (!first) {
-					results = results + ' ';
-				};
-				first=false;
-				any = true;
-				license = license.toLowerCase();
-				var color = (colors[license]) ? colors[license] : '';
-				results = results + '[![' + key + '](http://badgr.co/'+license+'/'+ key +'.png'+color+')](' + item.repo + ')';
+//				if (!thispack || !thispack.dependencies || thispack.dependencies[key]) { // only include non-dev packages
+					if (!first) {
+						results = results + ' ';
+					};
+					first=false;
+					any = true;
+					license = license.toLowerCase();
+					var color = (colors[license]) ? colors[license] : '';
+					results = results + '[![' + key + '](http://badgr.co/'+license+'/'+ key +'.png'+color+')](' + item.repo + ')';
+//				}
 			}
 		});
 		if (any) {
