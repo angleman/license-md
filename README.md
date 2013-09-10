@@ -1,12 +1,12 @@
-# license-markdown [![NPM version](https://badge.fury.io/js/license-markdown.png?branch=master)](https://npmjs.org/package/license-markdown) [![Build Status](https://travis-ci.org/angleman/license-markdown.png?branch=master)](https://travis-ci.org/angleman/license-markdown) [![Dependency Status](https://gemnasium.com/angleman/license-markdown.png?branch=master)](https://gemnasium.com/angleman/license-markdown) [![License](http://badgr.co/use/MIT.png?bg=%234ed50e)](http://opensource.org/licenses/MIT)
+# license-md [![NPM version](https://badge.fury.io/js/license-md.png?branch=master)](https://npmjs.org/package/license-md) [![Build Status](https://travis-ci.org/angleman/license-md.png?branch=master)](https://travis-ci.org/angleman/license-md) [![Dependency Status](https://gemnasium.com/angleman/license-md.png?branch=master)](https://gemnasium.com/angleman/license-md) [![License](http://badgr.co/use/MIT.png?bg=%234ed50e)](http://opensource.org/licenses/MIT)
 
-Generate markdown license info for a module
+Generate md license info for a module
 
 
 ## Install
 
 ```
-npm install license-markdown
+npm install license-md
 ```
 
 ## Usage

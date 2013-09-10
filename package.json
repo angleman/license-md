@@ -1,5 +1,5 @@
 {
-  "name": "license-markdown",
+  "name": "license-md",
   "version": "0.1.0", 
   "description": "Generate markdown license info for a module",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/angleman/license-markdown.git"
+    "url": "https://github.com/angleman/license-md.git"
   },
   "keywords": [
      "license",
@@ -20,7 +20,7 @@
   "author": "angleman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/angleman/license-markdown/issues"
+    "url": "https://github.com/angleman/license-md/issues"
   },
   "engines" : { 
     "node" : ">=0.8.0" 
