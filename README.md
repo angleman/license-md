@@ -20,7 +20,7 @@ node node_modules/license-md >> README.md
 
 ## License: MIT
 
-Dependency licenses:
+Dependencies:
 
 [![npm-license](http://badgr.co/bsd/npm-license.png?bg=%234ed50e)](http://github.com/AceMetrix/license-checker)
 [![grunt](http://badgr.co/mit/grunt.png?bg=%234ed50e)](https://github.com/gruntjs/grunt)
