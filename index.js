@@ -1,4 +1,4 @@
-var checker = require('npm-license') // AceMetrix/npm-license
+var checker = require('npm-license')      // AceMetrix/npm-license
     thispack = require('./package.json')
 ;
 
