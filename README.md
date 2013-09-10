@@ -14,7 +14,7 @@ npm install license-md
 Append license badge markdown
 
 ```
-node node_modules/license-md >> README.md
+node node_modules/license-md | sed -e 's/scanning .\///g' >> README.md
 ```
 
 
