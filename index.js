@@ -40,7 +40,7 @@ checker.init({
 	});
 
 
-	var results = "Dependencies:";
+	var results = "Dependencies:\n\n";
 	Object.keys(bylicense).forEach(function(license) {
 		var mods = bylicense[license];
 //		results = results + '- ' + key + ': ';
