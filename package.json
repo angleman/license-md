@@ -1,7 +1,7 @@
 {
   "name": "license-md",
-  "version": "0.1.0", 
-  "description": "Generate markdown license info for a module",
+  "version": "0.1.1", 
+  "description": "Generate markdown npm package license badges",
   "main": "index.js",
   "scripts": {
     "test": "mocha -R list test/*.js",
