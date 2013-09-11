@@ -11,12 +11,12 @@ checker.init({
 }, function(json) {
 
 	var colors = {
-		'mit' : '?bg=%234ed50e',
-		'mit*' : '?bg=%234ed50e',
-		'bsd' : '?bg=%234ed50e',
-		'apache' : '?bg=%234ed50e',
-		'apache*' : '?bg=%234ed50e',
-		'unknown': '?bg=%23FFCE63'
+		'mit' : '?bg=%23339e00',
+		'mit*' : '?bg=%23339e00',
+		'bsd' : '?bg=%23339e00',
+		'apache' : '?bg=%23339e00',
+		'apache*' : '?bg=%23339e00',
+		'unknown': '?bg=%23ddcb02'
 	};
 
 	var bylicense = {
@@ -68,7 +68,7 @@ checker.init({
 					any = true;
 					license = license.toLowerCase();
 					var color = (colors[license]) ? colors[license] : '';
-					results = results + '[![' + key + '](http://badgr.co/'+license+'/'+ key +'.png'+color+' "'+ item.ver+'")](' + item.repo + ')';
+					results = results + '[![' + key + '](http://badgr.co/'+license+'/'+ key +'.png'+color+' "'+ key + '@' + item.ver+'")](' + item.repo + ')';
 				}
 			}
 		});
