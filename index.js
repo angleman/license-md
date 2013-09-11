@@ -11,11 +11,11 @@ checker.init({
 }, function(json) {
 
 	var colors = {
-		'mit' : '?bg=%23339e00',
-		'mit*' : '?bg=%23339e00',
-		'bsd' : '?bg=%23339e00',
 		'apache' : '?bg=%23339e00',
 		'apache*' : '?bg=%23339e00',
+		'bsd' : '?bg=%23339e00',
+		'mit' : '?bg=%23339e00',
+		'mit*' : '?bg=%23339e00',
 		'unknown': '?bg=%23ddcb02'
 	};
 
@@ -37,13 +37,17 @@ checker.init({
 		if (typeof licenses == 'string') {
 			licenses = [licenses];
 		}
-		var license = licenses[0];
+		try {
+			var license = licenses[0];
+		} catch(err) {
+			license = 'UNKNOWN';
+		}
 		if (!bylicense[license]) {
 			bylicense[license] = {};
 		}
 		bylicense[license][pack] = {
 			ver: ver,
-			repo: item.repository
+			repo: item.repository.replace('git@github.com:', 'https://github.com/')
 		}
 	});
 
@@ -62,7 +66,7 @@ checker.init({
 			if (!thispack || !thispack.name || thispack.name != key) {
 				if (!thispack || !thispack.dependencies || thispack.dependencies[key]) { // only include non-dev packages
 					if (!first) {
-						results = results + ' ';
+						results = results + "\n";
 					};
 					first=false;
 					any = true;
