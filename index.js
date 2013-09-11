@@ -14,10 +14,14 @@ checker.init({
 		'mit' : '?bg=%234ed50e',
 		'mit*' : '?bg=%234ed50e',
 		'bsd' : '?bg=%234ed50e',
+		'apache' : '?bg=%234ed50e',
+		'apache*' : '?bg=%234ed50e',
 		'unknown': '?bg=%23FFCE63'
 	};
 
 	var bylicense = {
+		'APACHE' : {},
+		'APACHE*' : {},
 		'BSD' : {},
 		'MIT' : {},
 		'MIT*' : {},
