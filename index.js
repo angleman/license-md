@@ -10,13 +10,18 @@ checker.init({
     start: './'
 }, function(json) {
 
+	var green = '?bg=%23339e00';
+	var yellow = '?bg=%23ddcb02';
 	var colors = {
-		'apache' : '?bg=%23339e00',
-		'apache*' : '?bg=%23339e00',
-		'bsd' : '?bg=%23339e00',
-		'mit' : '?bg=%23339e00',
-		'mit*' : '?bg=%23339e00',
-		'unknown': '?bg=%23ddcb02'
+		'apache' : green,
+		'apache*' : green,
+		'bsd' : green,
+		'bsd*' : green,
+		'gpl' : green,
+		'gpl*' : green,
+		'mit' : green,
+		'mit*' : green,
+		'unknown': yellow
 	};
 
 	var bylicense = {
