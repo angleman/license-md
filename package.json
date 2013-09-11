@@ -26,7 +26,7 @@
     "node" : ">=0.8.0" 
   },
   "dependencies": {
-    "npm-license": "~0.1.7"
+    "npm-license": "git://github.com/angleman/npm-license.git"
   },
   "devDependencies": {
      "grunt": "0.4.x",

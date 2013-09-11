@@ -7,7 +7,8 @@ try {
 }
 
 checker.init({
-    start: './'
+    start: './',
+    suppress: true
 }, function(json) {
 
 	var green = '?bg=%23339e00';
