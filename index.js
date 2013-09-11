@@ -1,5 +1,8 @@
-var checker = require('npm-license')      // AceMetrix/npm-license
-    thispack = require('../../package.json')
+var checker   = require('npm-license')      // AceMetrix/npm-license
+  , fs        = require('fs')
+  , parentpck = fs.existsSync('../../package.json')
+  , addl_dir  = (parentpck) ? '../.' : ''
+  , thispack  = require(addl_dir + './package.json')
 ;
 
 checker.init({
@@ -60,7 +63,7 @@ checker.init({
 					any = true;
 					license = license.toLowerCase();
 					var color = (colors[license]) ? colors[license] : '';
-					results = results + '[![' + key + '](http://badgr.co/'+license+'/'+ key +'.png'+color+')](' + item.repo + ')';
+					results = results + '[![' + key + '](http://badgr.co/'+license+'/'+ key +'.png'+color+' "'+ item.ver+'")](' + item.repo + ')';
 				}
 			}
 		});

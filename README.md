@@ -11,10 +11,10 @@ npm install license-md
 
 ## Usage
 
-Append license badge markdown
+Generate license badge markdown
 
 ```
-node node_modules/license-md | sed -e 's/scanning .\///g' >> README.md
+node node_modules/license-md | sed -e 's/scanning .\///g'
 ```
 
 
@@ -22,4 +22,4 @@ node node_modules/license-md | sed -e 's/scanning .\///g' >> README.md
 
 Dependencies:
 
-[![npm-license](http://badgr.co/bsd/npm-license.png?bg=%234ed50e)](http://github.com/AceMetrix/license-checker)
+[![npm-license](http://badgr.co/bsd/npm-license.png?bg=%234ed50e "0.1.7")](http://github.com/AceMetrix/license-checker)
