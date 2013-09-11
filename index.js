@@ -45,9 +45,12 @@ checker.init({
 		if (!bylicense[license]) {
 			bylicense[license] = {};
 		}
+		if (typeof item.repository == 'string') {
+			item.repository = item.repository.replace('git@github.com:', 'https://github.com/');
+		}
 		bylicense[license][pack] = {
 			ver: ver,
-			repo: item.repository.replace('git@github.com:', 'https://github.com/')
+			repo: item.repository
 		}
 	});
 
