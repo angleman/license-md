@@ -1,9 +1,10 @@
-var checker   = require('npm-license')      // AceMetrix/npm-license
-  , fs        = require('fs')
-  , parentpck = fs.existsSync('../../package.json')
-  , addl_dir  = (parentpck) ? '../.' : ''
-  , thispack  = require(addl_dir + './package.json')
-;
+var checker   = require('npm-license');      // AceMetrix/npm-license
+var thispack;
+try {
+	thispack  = require('../../package.json');
+} catch(e) {
+	thispack  = require('./package.json');
+}
 
 checker.init({
     start: './'
