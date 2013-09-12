@@ -14,8 +14,8 @@ checker.init({
 	var green = '?bg=%23339e00';
 	var yellow = '?bg=%23ddcb02';
 	var colors = {
-		'APACHE' : green,
-		'APACHE*' : green,
+		'Apache' : green,
+		'Apache*' : green,
 		'BSD' : green,
 		'BSD*' : green,
 		'GPL' : green,
@@ -24,12 +24,12 @@ checker.init({
 		'MIT*' : green,
 		'PD' : green,
 		'PD*' : green,
-		'UNKNOWN': yellow
+		'Unknown': yellow
 	};
 
 	var bylicense = {
-		'APACHE' : {},
-		'APACHE*' : {},
+		'Apache' : {},
+		'Apache*' : {},
 		'BSD' : {},
 		'BSD*' : {},
 		'GPL' : {},
@@ -38,14 +38,14 @@ checker.init({
 		'MIT*' : {},
 		'PD' : {},
 		'PD*' : {},
-		'UNKNOWN': {}
+		'Unknown': {}
 	}
 
 	var asterix = ' (it seems based on text scan)';
 
 	var licenseDesc = {
-		'APACHE'  : 'Apache',
-		'APACHE*' : 'Apache'+asterix,
+		'Apache'  : 'Apache',
+		'Apache*' : 'Apache'+asterix,
 		'BSD'     : 'Berkeley Software Distribution',
 		'BSD*'    : 'Berkeley Software Distribution'+asterix,
 		'GPL'     : 'GNU General Public License',
@@ -54,7 +54,7 @@ checker.init({
 		'MIT*'    : 'Massachusetts Institute of Technology'+asterix,
 		'PD'      : 'Public Domain',
 		'PD*'     : 'Public Domain'+asterix,
-		'UNKNOWN' : 'Unknown License'
+		'Unknown' : 'Unknown License'
 	}
 
 
@@ -70,16 +70,18 @@ checker.init({
 		try {
 			var license = licenses[0];
 		} catch(err) {
-			license = 'UNKNOWN';
+			license = 'Unknown';
 		}
-		var upper_license = license.toUpperCase();
-		if (!bylicense[upper_license]) {
-			bylicense[upper_license] = {};
+		if (license == 'UNKNOWN') {
+			license = 'Unknown';
+		}
+		if (!bylicense[license]) {
+			bylicense[license] = {};
 		}
 		if (typeof item.repository == 'string') {
 			item.repository = item.repository.replace('git@github.com:', 'https://github.com/');
 		}
-		bylicense[upper_license][pack] = {
+		bylicense[license][pack] = {
 			ver: ver,
 			repo: item.repository
 		}
@@ -89,10 +91,8 @@ checker.init({
 	var results = ''; //"Dependencies:\n\n";
 	Object.keys(bylicense).forEach(function(license) {
 		var mods = bylicense[license];
-//		results = results + '- ' + key + ': ';
 		var first = true;
-//		var any = false;
-		if (license == 'UNKNOWN') {
+		if (license == 'Unknown') {
 			results = results + "\n";
 		}
 		Object.keys(mods).forEach(function(key) {
@@ -103,18 +103,13 @@ checker.init({
 						results = results + "\n";
 					};
 					first=false;
-//					any = true;
-					upper_license = license.toUpperCase();
-					var color = (colors[upper_license]) ? colors[upper_license] : '';
+					var color = (colors[license]) ? colors[license] : '';
 					results = results + '[![' + key + '](http://badgr.co/'+key+'/'+ license +'.png'+color
-						+ ' "'+ key + '@' + item.ver + ' ' + licenseDesc[upper_license]
+						+ ' "'+ key + '@' + item.ver + ' ' + licenseDesc[license]
 						+ '")](' + item.repo + ')' + "\n";
 				}
 			}
 		});
-//		if (any) {
-//			results = results + "\n";
-//		}
 	});
 
 	console.log(results);
