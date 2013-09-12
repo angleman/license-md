@@ -41,7 +41,7 @@ checker.init({
 		'Unknown': {}
 	}
 
-	var asterix = ' (guess based on text scan)';
+	var asterix = ' (text scan guess)';
 
 	var licenseDesc = {
 		'Apache'  : 'Apache',
