@@ -14,25 +14,49 @@ checker.init({
 	var green = '?bg=%23339e00';
 	var yellow = '?bg=%23ddcb02';
 	var colors = {
-		'apache' : green,
-		'apache*' : green,
-		'bsd' : green,
-		'bsd*' : green,
-		'gpl' : green,
-		'gpl*' : green,
-		'mit' : green,
-		'mit*' : green,
-		'unknown': yellow
+		'APACHE' : green,
+		'APACHE*' : green,
+		'BSD' : green,
+		'BSD*' : green,
+		'GPL' : green,
+		'GPL*' : green,
+		'MIT' : green,
+		'MIT*' : green,
+		'PD' : green,
+		'PD*' : green,
+		'UNKNOWN': yellow
 	};
 
 	var bylicense = {
 		'APACHE' : {},
 		'APACHE*' : {},
 		'BSD' : {},
+		'BSD*' : {},
+		'GPL' : {},
+		'GPL*' : {},
 		'MIT' : {},
 		'MIT*' : {},
+		'PD' : {},
+		'PD*' : {},
 		'UNKNOWN': {}
 	}
+
+	var asterix = ' (it seems based on text scan)';
+
+	var licenseDesc = {
+		'APACHE'  : 'Apache',
+		'APACHE*' : 'Apache'+asterix,
+		'BSD'     : 'Berkeley Software Distribution',
+		'BSD*'    : 'Berkeley Software Distribution'+asterix,
+		'GPL'     : 'GNU General Public License',
+		'GPL*'    : 'GNU General Public License'+asterix,
+		'MIT'     : 'Massachusetts Institute of Technology',
+		'MIT*'    : 'Massachusetts Institute of Technology'+asterix,
+		'PD'      : 'Public Domain',
+		'PD*'     : 'Public Domain'+asterix,
+		'UNKNOWN' : 'Unknown License'
+	}
+
 
 	Object.keys(json).forEach(function(key) {
 		var item = json[key];
@@ -66,7 +90,7 @@ checker.init({
 		var mods = bylicense[license];
 //		results = results + '- ' + key + ': ';
 		var first = true;
-		var any = false;
+//		var any = false;
 		if (license == 'UNKNOWN') {
 			results = results + "\n";
 		}
@@ -78,16 +102,17 @@ checker.init({
 						results = results + "\n";
 					};
 					first=false;
-					any = true;
-					license = license.toLowerCase();
+//					any = true;
 					var color = (colors[license]) ? colors[license] : '';
-					results = results + '[![' + key + '](http://badgr.co/'+license+'/'+ key +'.png'+color+' "'+ key + '@' + item.ver+'")](' + item.repo + ')';
+					results = results + '[![' + key + '](http://badgr.co/'+key+'/'+ license +'.png'+color
+						+ ' "'+ key + '@' + item.ver + ' ' + licenseDesc[license]
+						+ '")](' + item.repo + ')' + "\n";
 				}
 			}
 		});
-		if (any) {
-			results = results + "\n";
-		}
+//		if (any) {
+//			results = results + "\n";
+//		}
 	});
 
 	console.log(results);

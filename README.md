@@ -22,4 +22,4 @@ node node_modules/license-md
 
 Dependencies:
 
-[![npm-license](http://badgr.co/bsd/npm-license.png?bg=%23339e00 "npm-license@0.1.7-1")](http://github.com/angleman/npm-license)
+[![npm-license](http://badgr.co/npm-license/BSD.png?bg=%23339e00 "npm-license@0.1.7-1 Berkeley Software Distribution")](http://github.com/angleman/npm-license)
