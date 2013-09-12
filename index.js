@@ -72,13 +72,14 @@ checker.init({
 		} catch(err) {
 			license = 'UNKNOWN';
 		}
-		if (!bylicense[license]) {
-			bylicense[license] = {};
+		var upper_license = license.toUpperCase();
+		if (!bylicense[upper_license]) {
+			bylicense[upper_license] = {};
 		}
 		if (typeof item.repository == 'string') {
 			item.repository = item.repository.replace('git@github.com:', 'https://github.com/');
 		}
-		bylicense[license][pack] = {
+		bylicense[upper_license][pack] = {
 			ver: ver,
 			repo: item.repository
 		}
@@ -103,9 +104,10 @@ checker.init({
 					};
 					first=false;
 //					any = true;
-					var color = (colors[license]) ? colors[license] : '';
+					upper_license = license.toUpperCase();
+					var color = (colors[upper_license]) ? colors[upper_license] : '';
 					results = results + '[![' + key + '](http://badgr.co/'+key+'/'+ license +'.png'+color
-						+ ' "'+ key + '@' + item.ver + ' ' + licenseDesc[license]
+						+ ' "'+ key + '@' + item.ver + ' ' + licenseDesc[upper_license]
 						+ '")](' + item.repo + ')' + "\n";
 				}
 			}
