@@ -109,8 +109,8 @@ checker.init({
 
 		if (section) {
 			item.section = section;
-		}
-		if (!(thispack.name && thispack.name == item.id)) {
+//		}
+//		if (!(thispack.name && thispack.name == item.id)) {
 			packlist.push(item);
 		}
 	});
@@ -126,7 +126,7 @@ checker.init({
 		item = packlist[i];
 
 		if (item.section != prior_section) {
-			if (prior_section.length) {
+			if (prior_section && prior_section.length && prior_section.length > 0) {
 				results = results + "\n\n";
 			}
 			results = results + item.section + ":\n\n";
