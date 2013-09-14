@@ -1,6 +1,6 @@
 {
   "name": "license-md",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Generate markdown npm package license badges",
   "main": "index.js",
   "scripts": {
