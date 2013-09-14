@@ -118,7 +118,7 @@ checker.init({
 	//console.log(thispack);
 
 	sort(packlist, {  section:1, id: 1 });
-	console.log(packlist);
+//	console.log(packlist);
 
 	var prior_section = '';
 
