@@ -1,10 +1,13 @@
 var checker   = require('npm-license');      // AceMetrix/npm-license
+var sort      = require('sort-component');   // npmjs.org/package/sort-component
 var thispack;
 try {
 	thispack  = require('../../package.json');
 } catch(e) {
 	thispack  = require('./package.json');
 }
+
+var results = "\n<!--- :angleman@license-md/begin -->\n";
 
 checker.init({
     start: './',
@@ -13,6 +16,7 @@ checker.init({
 
 	var green = '?bg=%23339e00';
 	var yellow = '?bg=%23ddcb02';
+	var grey   = '';
 	var colors = {
 		'Apache' : green,
 		'Apache*' : green,
@@ -24,7 +28,7 @@ checker.init({
 		'MIT*' : green,
 		'PD' : green,
 		'PD*' : green,
-		'Unknown': yellow
+		'Unknown': grey
 	};
 
 	var bylicense = {
@@ -58,11 +62,11 @@ checker.init({
 	}
 
 
+	var packlist = [];
+
 	Object.keys(json).forEach(function(key) {
 		var item = json[key];
-		var keyparts = key.split('@');
-		var pack = keyparts[0];
-		var ver  = keyparts[1];
+
 		var licenses = item.licenses;
 		if (typeof licenses == 'string') {
 			licenses = [licenses];
@@ -81,14 +85,63 @@ checker.init({
 		if (typeof item.repository == 'string') {
 			item.repository = item.repository.replace('git@github.com:', 'https://github.com/');
 		}
-		bylicense[license][pack] = {
-			ver: ver,
-			repo: item.repository
+
+		delete item.licenses;
+
+		var keyparts = key.split('@');
+		item.id = keyparts[0];
+		item.ver  = keyparts[1];
+
+		item.license = license;
+
+		item.repository = item.repository || '#';
+
+		var color = (colors[license]) ? colors[license] : '';
+		item.badge_url = 'http://badgr.co/'+ item.id+'/'+ license +'.png'+color;
+		item.lic_desc  = licenseDesc[license];
+
+
+		section = (thispack.dependencies     && thispack.dependencies[item.id])     ? 'Dependencies'
+			:     (thispack.peerDependencies && thispack.peerDependencies[item.id]) ? 'Peer Dependencies'
+			:     (thispack.devDependencies  && thispack.devDependencies[item.id])  ? 'Development Dependencies' 
+			:     undefined
+		;
+
+		if (section) {
+			item.section = section;
+		}
+		if (!(thispack.name && thispack.name == item.id)) {
+			packlist.push(item);
 		}
 	});
 
+//console.log(thispack);
 
-	var results = ''; //"Dependencies:\n\n";
+sort(packlist, {  section:1, id: 1 });
+console.log(packlist);
+
+var prior_section = '';
+
+for (var i=0; i<packlist.length; i++) {
+	item = packlist[i];
+
+	if (item.section != prior_section) {
+		if (prior_section.length) {
+			results = results + "\n\n";
+		}
+		results = results + item.section + ":\n\n";
+		prior_section = item.section;
+	}
+
+	results = results + '[![' + item.id + '](' + item.badge_url + '"'
+		+ item.id + '@' + item.ver + ' ' + item.lic_desc
+		+ "\")]("+ item.repository + ")\n"
+	;
+}
+
+
+
+/*	var results = ''; //"Dependencies:\n\n";
 	Object.keys(bylicense).forEach(function(license) {
 		var mods = bylicense[license];
 		var first = true;
@@ -111,7 +164,9 @@ checker.init({
 			}
 		});
 	});
+*/
 
+	results = results + "\n<!--- :angleman@license-md/end -->";
 	console.log(results);
 
 });
