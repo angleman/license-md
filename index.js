@@ -115,56 +115,29 @@ checker.init({
 		}
 	});
 
-//console.log(thispack);
+	//console.log(thispack);
 
-sort(packlist, {  section:1, id: 1 });
-console.log(packlist);
+	sort(packlist, {  section:1, id: 1 });
+	console.log(packlist);
 
-var prior_section = '';
+	var prior_section = '';
 
-for (var i=0; i<packlist.length; i++) {
-	item = packlist[i];
+	for (var i=0; i<packlist.length; i++) {
+		item = packlist[i];
 
-	if (item.section != prior_section) {
-		if (prior_section.length) {
-			results = results + "\n\n";
-		}
-		results = results + item.section + ":\n\n";
-		prior_section = item.section;
-	}
-
-	results = results + '[![' + item.id + '](' + item.badge_url + '"'
-		+ item.id + '@' + item.ver + ' ' + item.lic_desc
-		+ "\")]("+ item.repository + ")\n"
-	;
-}
-
-
-
-/*	var results = ''; //"Dependencies:\n\n";
-	Object.keys(bylicense).forEach(function(license) {
-		var mods = bylicense[license];
-		var first = true;
-		if (license == 'Unknown') {
-			results = results + "\n";
-		}
-		Object.keys(mods).forEach(function(key) {
-			var item = mods[key];
-			if (!thispack || !thispack.name || thispack.name != key) {
-				if (!thispack || !thispack.dependencies || thispack.dependencies[key]) { // only include non-dev packages
-					if (!first) {
-						results = results + "\n";
-					};
-					first=false;
-					var color = (colors[license]) ? colors[license] : '';
-					results = results + '[![' + key + '](http://badgr.co/'+key+'/'+ license +'.png'+color
-						+ ' "'+ key + '@' + item.ver + ' ' + licenseDesc[license]
-						+ '")](' + item.repo + ')' + "\n";
-				}
+		if (item.section != prior_section) {
+			if (prior_section.length) {
+				results = results + "\n\n";
 			}
-		});
-	});
-*/
+			results = results + item.section + ":\n\n";
+			prior_section = item.section;
+		}
+
+		results = results + '[![' + item.id + '](' + item.badge_url + ' "'
+			+ item.id + '@' + item.ver + ' ' + item.lic_desc
+			+ "\")]("+ item.repository + ")\n"
+		;
+	}
 
 	results = results + "\n<!--- :angleman@license-md/end -->";
 	console.log(results);
